@@ -1,8 +1,8 @@
 <?php
 /**
- * Eergx Child Theme Functions
+ * Elnakieb Child Theme Functions
  *
- * This file contains custom functions and modifications for the Eergx child theme.
+ * This file contains custom functions and modifications for the Elnakieb child theme.
  * All customizations should be made here instead of modifying the parent theme files.
  */
 
@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
     exit('Direct access denied.');
 }
 
-class Eergx_Child_Theme {
+class Elnakieb_Child_Theme {
 
     public function __construct() {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_child_styles'), 99);
@@ -32,7 +32,7 @@ class Eergx_Child_Theme {
      */
     public function child_theme_setup() {
         // Add child theme text domain
-        load_child_theme_textdomain('eergx-child', get_stylesheet_directory() . '/languages');
+        load_child_theme_textdomain('elnakieb-child', get_stylesheet_directory() . '/languages');
 
         // Enable additional theme features if needed
         // add_theme_support('custom-logo');
@@ -52,8 +52,8 @@ class Eergx_Child_Theme {
      * Disable auto-updates for the parent theme
      */
     public function disable_parent_theme_auto_update($update, $item) {
-        // Disable auto-updates for the eergx parent theme
-        if ($item->stylesheet === 'eergx') {
+        // Disable auto-updates for the elnakieb parent theme
+        if ($item->stylesheet === 'elnakieb') {
             return false;
         }
         return $update;
@@ -104,21 +104,21 @@ class Eergx_Child_Theme {
 }
 
 // Initialize the child theme
-new Eergx_Child_Theme();
+new Elnakieb_Child_Theme();
 
 // Include options integration for parent theme compatibility
 require_once get_stylesheet_directory() . '/options-integration.php';
 
-// Include plugin integration for eergx-plugin compatibility
+// Include plugin integration for elnakieb-plugin compatibility
 require_once get_stylesheet_directory() . '/plugin-integration.php';
 
 // Helper functions for theme customization
-function eergx_child_backup() {
-    Eergx_Child_Theme::create_customization_backup();
+function elnakieb_child_backup() {
+    Elnakieb_Child_Theme::create_customization_backup();
 }
 
-function eergx_child_log($file, $description) {
-    Eergx_Child_Theme::log_modification($file, $description);
+function elnakieb_child_log($file, $description) {
+    Elnakieb_Child_Theme::log_modification($file, $description);
 }
 
 /**
