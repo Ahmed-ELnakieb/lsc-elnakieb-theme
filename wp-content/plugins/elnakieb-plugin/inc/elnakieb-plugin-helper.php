@@ -25,12 +25,12 @@ if ( ! class_exists( 'Elnakieb_Plugin_Helper' ) ) {
 			$headers = get_posts(
 				[
 					'posts_per_page' => - 1,
-					'post_type'      => 'eergx_template',
+					'post_type'      => 'elnakieb_template',
 					'orderby'        => 'name',
 					'order'          => 'ASC',
 					'meta_query' => array(
 						array(
-							'key'       => 'eergx_template_type',
+							'key'       => 'elnakieb_template_type',
 							'value'     => 'tf_header_key',
 							'compare'   => '='
 						)
@@ -53,12 +53,12 @@ if ( ! class_exists( 'Elnakieb_Plugin_Helper' ) ) {
 			$footers = get_posts(
 				[
 					'posts_per_page' => - 1,
-					'post_type'      => 'eergx_template',
+					'post_type'      => 'elnakieb_template',
 					'orderby'        => 'name',
 					'order'          => 'ASC',
 					'meta_query' => array(
 						array(
-							'key'       => 'eergx_template_type',
+							'key'       => 'elnakieb_template_type',
 							'value'     => 'tf_footer_key',
 							'compare'   => '='
 						)

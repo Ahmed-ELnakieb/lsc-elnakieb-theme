@@ -30,6 +30,71 @@ if ( class_exists( 'CSF' ) ) {
         'footer_text'    => wp_kses_post( 'The Theme will Created By Themexriver ' ),
     ) );
 
+    // Add Templates submenu to Elnakieb menu
+    add_action('admin_menu', function() {
+        // Remove any existing wrong template menu
+        remove_submenu_page('elnakieb-theme-option', 'edit.php?post_type=eergx_template');
+        
+        // Add correct Templates submenu
+        add_submenu_page(
+            'elnakieb-theme-option',
+            'Templates',
+            'Templates', 
+            'manage_options',
+            'edit.php?post_type=elnakieb_template'
+        );
+    }, 99);
+
+    // Also try to remove the wrong menu on a later hook
+    add_action('admin_menu', function() {
+        global $submenu;
+        if (isset($submenu['elnakieb-theme-option'])) {
+            foreach ($submenu['elnakieb-theme-option'] as $key => $menu_item) {
+                if (strpos($menu_item[2], 'eergx_template') !== false) {
+                    unset($submenu['elnakieb-theme-option'][$key]);
+                }
+            }
+        }
+    }, 999);
+
+    // Add JavaScript fix for any remaining wrong links
+    add_action('admin_footer', function() {
+        ?>
+        <script>
+        jQuery(document).ready(function($) {
+            // Fix any Templates links that still point to eergx_template
+            $('a[href*="eergx_template"]').each(function() {
+                var href = $(this).attr('href');
+                if (href.includes('eergx_template')) {
+                    $(this).attr('href', href.replace('eergx_template', 'elnakieb_template'));
+                }
+            });
+        });
+        </script>
+        <?php
+    });
+
+    // Force clear any cached menus
+    add_action('init', function() {
+        if (is_admin()) {
+            wp_cache_delete('menu', 'options');
+            delete_transient('elnakieb_admin_menu');
+        }
+    });
+
+    // Update existing footer copyright if it still contains eergx
+    add_action('init', function() {
+        $options = get_option('elnakieb_theme_options');
+        if ($options && isset($options['footer_copyright'])) {
+            $current_copyright = $options['footer_copyright'];
+            if (strpos($current_copyright, 'eergx') !== false) {
+                $new_copyright = '© 2025 All Rights Reserved — Developed by ELNAKIEB.';
+                $options['footer_copyright'] = $new_copyright;
+                update_option('elnakieb_theme_options', $options);
+            }
+        }
+    });
+
     // Create a top-tab
     CSF::createSection( $prefix . '_theme_options', array(
         'id'    => 'header_opts', // Set a unique slug-like ID
@@ -369,7 +434,7 @@ if ( class_exists( 'CSF' ) ) {
                 'id'    => 'footer_copyright',
                 'type'  => 'wp_editor',
                 'title' => 'Default Footer Copyright',
-                'default' => '© 2023 eergx - IT Services. All rights reserved.',
+                'default' => '© 2024 Elnakieb - Solar Energy Solutions. All rights reserved.',
             ),
 
         ),
