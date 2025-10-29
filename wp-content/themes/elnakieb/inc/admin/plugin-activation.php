@@ -6,9 +6,8 @@ function eergx_register_required_plugins(){
 
     $plugins = array(
         array(
-            'name' => esc_html__('Eergx Plugin', 'eergx'),
-            'slug' => 'eergx-plugin',
-            'source' => ('https://themexriver.com/wp/eergx/plugin/eergx-plugin.zip'),
+            'name' => esc_html__('Elnakieb Plugin', 'elnakieb'),
+            'slug' => 'elnakieb-plugin',
             'required' => true,
             'force_activation' => false,
             'force_deactivation' => false,

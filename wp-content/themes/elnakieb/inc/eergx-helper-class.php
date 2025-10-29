@@ -35,9 +35,9 @@ if (!class_exists('Elnakieb_Helper')) {
 				$header_style .= $f_style;
 			}
 
-			if (class_exists('Eergx_Plugin_Helper') && $header_style && (get_post($header_style)) && in_array('elementor/elementor.php', apply_filters('active_plugins', get_option('active_plugins')))) { ?>
+			if (class_exists('Elnakieb_Plugin_Helper') && $header_style && (get_post($header_style)) && in_array('elementor/elementor.php', apply_filters('active_plugins', get_option('active_plugins')))) { ?>
 				<?php $elementor_instance = Elementor\Plugin::instance(); ?>
-				<?php echo Eergx_Plugin_Helper::eergx_render_header($header_style); ?>
+				<?php echo Elnakieb_Plugin_Helper::elnakieb_render_header($header_style); ?>
 			<?php
 			} else {
 				get_template_part('template-parts/header/default', 'header');
@@ -65,9 +65,9 @@ if (!class_exists('Elnakieb_Helper')) {
 				$footer_style .= $f_style;
 			}
 
-			if (class_exists('Eergx_Plugin_Helper') && $footer_style && (get_post($footer_style)) && in_array('elementor/elementor.php', apply_filters('active_plugins', get_option('active_plugins')))) { ?>
+			if (class_exists('Elnakieb_Plugin_Helper') && $footer_style && (get_post($footer_style)) && in_array('elementor/elementor.php', apply_filters('active_plugins', get_option('active_plugins')))) { ?>
 				<?php $elementor_instance = Elementor\Plugin::instance(); ?>
-				<?php echo Eergx_Plugin_Helper::eergx_render_footer($footer_style); ?>
+				<?php echo Elnakieb_Plugin_Helper::elnakieb_render_footer($footer_style); ?>
 			<?php
 			} else {
 				get_template_part('template-parts/footer/default', 'footer');

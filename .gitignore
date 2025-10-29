@@ -32,8 +32,8 @@ wp-config-sample.php
 
 # WordPress Plugins (exclude all except custom ones)
 /wp-content/plugins/
-# If you want to include specific plugins, use:
-# !/wp-content/plugins/your-custom-plugin/
+# Keep your custom plugins:
+!/wp-content/plugins/elnakieb-plugin/
 
 # WordPress Themes (exclude all except custom ones)
 /wp-content/themes/twenty*/
