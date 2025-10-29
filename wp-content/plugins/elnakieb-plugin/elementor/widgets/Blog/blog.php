@@ -107,7 +107,7 @@ class Eergx_Blog_One extends Widget_Base {
 			[
 				'type'        => Controls_Manager::SELECT2,
 				'label'       => esc_html__( 'Select Categories', 'eergx-plugin' ),
-				'options'     => eergx_blog_category(),
+				'options'     => elnakieb_blog_category(),
 				'label_block' => true,
 				'multiple'    => true,
 			]
