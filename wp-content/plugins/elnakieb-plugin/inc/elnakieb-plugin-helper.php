@@ -21,7 +21,7 @@ if ( ! class_exists( 'Elnakieb_Plugin_Helper' ) ) {
 		 * @return  [type]  [return description]
 		 */
 		public static function get_header_types() {
-			$header = ['' => esc_html__( 'Default', 'elnakieb-plugin' ) ];
+			$header = ['' => 'Default'];
 			$headers = get_posts(
 				[
 					'posts_per_page' => - 1,
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Elnakieb_Plugin_Helper' ) ) {
 		 * @return  [type]  [return description]
 		 */
 		public static function get_footer_types() {
-			$footer = ['' => esc_html__( 'Default', 'eergx-plugin' ) ];
+			$footer = ['' => 'Default'];
 			$footers = get_posts(
 				[
 					'posts_per_page' => - 1,
