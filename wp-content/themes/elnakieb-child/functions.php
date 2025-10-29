@@ -52,8 +52,8 @@ class Elnakieb_Child_Theme {
      * Disable auto-updates for the parent theme
      */
     public function disable_parent_theme_auto_update($update, $item) {
-        // Disable auto-updates for the elnakieb parent theme
-        if ($item->stylesheet === 'elnakieb') {
+        // Check if item has the theme property and disable auto-updates for elnakieb
+        if (isset($item->theme) && $item->theme === 'elnakieb') {
             return false;
         }
         return $update;
